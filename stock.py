@@ -23,6 +23,20 @@ class Stock:
         self.highValues = self.dataframe["High"].to_list()
         self.lowValues = self.dataframe["Low"].to_list()
         
+        # Save Stock Change
+        self.openChange = []
+        for index in range(1, len(self.openValues)):
+            self.openChange.append(self.openValues[index] - self.openValues[index-1])
+        self.closeChange = []
+        for index in range(1, len(self.closeValues)):
+            self.closeChange.append(self.closeValues[index] - self.closeValues[index-1])
+        self.highChange = []
+        for index in range(1, len(self.highValues)):
+            self.highChange.append(self.highValues[index] - self.highValues[index-1])
+        self.lowChange = []
+        for index in range(1, len(self.lowValues)):
+            self.lowChange.append(self.lowValues[index] - self.lowValues[index-1])
+    
     def Print(self): print(self.dataframe)
 
     def ToJSON(self):
