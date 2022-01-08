@@ -38,7 +38,7 @@ class Stock:
             self.lowChange.append(self.lowValues[index] - self.lowValues[index-1])
     
     def Print(self): print(self.dataframe)
-
+    
     def ToJSON(self):
         """Save Stock object as a JSON string"""
         dict = self.__dict__
