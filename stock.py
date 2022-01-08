@@ -25,7 +25,7 @@ class Stock:
         
     def Print(self): print(self.dataframe)
 
-    def toJSON(self):
+    def ToJSON(self):
         """Save Stock object as a JSON string"""
         dict = self.__dict__
         del dict["now"], dict["dataframe"]
