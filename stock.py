@@ -1,6 +1,5 @@
 import yfinance
 import datetime as t
-import json
 
 class Stock:
     def __init__(self, _ticker):
@@ -12,7 +11,7 @@ class Stock:
         self.dataframe = yfinance.download(tickers=self.ticker, period="2h", interval="15m")
         
         # Time
-        self.delat = (t.datetime.now() - self.now).total_seconds()
+        self.delaTime = (t.datetime.now() - self.now).total_seconds()
         self.minuteNow = self.now.minute
         self.hourNow = self.now.hour
         self.dayNow = self.now.day
@@ -42,6 +41,7 @@ class Stock:
     def Print(self): print(self.dataframe)
     
     def Dict(self):
+        """Return __dict__ without object valued attributes"""
         dict = self.__dict__
         del dict["now"], dict["dataframe"]
         return dict
