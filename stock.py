@@ -38,6 +38,10 @@ class Stock:
         self.lowChange = []
         for index in range(1, len(self.lowValues)):
             self.lowChange.append(self.lowValues[index] - self.lowValues[index-1])
+            
+        # Save Stock Dict
+        self.dictionary = self.__dict__
+        del self.dictionary["now"], self.dictionary["dataframe"]
     
     def Print(self): print(self.dataframe)
     
