@@ -5,14 +5,14 @@ class Stock:
     def __init__(self, _ticker):
         """Initiate a Stock object"""
         if type(_ticker) is str: self.ticker = _ticker
-        else: raise TypeError("Ticker type is not string")
+        else: raise TypeError("Ticker type shoud be a string value")
         
         # Get Stock Data
         self.now = t.datetime.now()
         self.dataframe = yfinance.download(tickers=self.ticker, period="2h", interval="15m")
         
         # Time
-        self.delaTime = (t.datetime.now() - self.now).total_seconds()
+        self.deltaTime = (t.datetime.now() - self.now).total_seconds()
         self.minuteNow = self.now.minute
         self.hourNow = self.now.hour
         self.dayNow = self.now.day
