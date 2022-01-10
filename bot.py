@@ -7,5 +7,5 @@ tickers = request["tickers"]
 stocks = [Stock(tick) for tick in tickers]
 
 # Save Data as JSON
-jsonString = json.dumps({stock.ticker: stock.dictionary for stock in stocks}, indent=4)
+jsonString = json.dumps({stock.ticker: stock.Dict() for stock in stocks}, indent=4)
 with open("data.json", "w") as file: file.write(jsonString)

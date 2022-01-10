@@ -38,15 +38,10 @@ class Stock:
         self.lowChange = []
         for index in range(1, len(self.lowValues)):
             self.lowChange.append(self.lowValues[index] - self.lowValues[index-1])
-            
-        # Save Stock Dict
-        self.dictionary = self.__dict__
-        del self.dictionary["now"], self.dictionary["dataframe"]
     
     def Print(self): print(self.dataframe)
     
-    def ToJSON(self):
-        """Save Stock object as a JSON string"""
+    def Dict(self):
         dict = self.__dict__
         del dict["now"], dict["dataframe"]
-        with open("data.json", "w") as file: file.write(json.dumps(dict, indent=4))
+        return dict
