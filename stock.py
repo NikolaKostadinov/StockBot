@@ -3,11 +3,13 @@ import datetime as t
 import json
 
 class Stock:
-    def __init__(self, _ticket):
+    def __init__(self, _ticker):
         """Initiate a Stock object"""
+        self.ticker = _ticker
+        
         # Get Stock Data
         self.now = t.datetime.now()
-        self.dataframe = yfinance.download(tickers=_ticket, period="2h", interval="15m")
+        self.dataframe = yfinance.download(tickers=self.ticker, period="2h", interval="15m")
         
         # Time
         self.delat = (t.datetime.now() - self.now).total_seconds()
