@@ -4,7 +4,8 @@ import datetime as t
 class Stock:
     def __init__(self, _ticker):
         """Initiate a Stock object"""
-        self.ticker = _ticker
+        if type(_ticker) is str: self.ticker = _ticker
+        else: raise TypeError("Ticker type is not string")
         
         # Get Stock Data
         self.now = t.datetime.now()
