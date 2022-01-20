@@ -1,4 +1,4 @@
-from stock import *
+from security import *
 import datetime as t
 import json
 
@@ -7,10 +7,10 @@ request = json.load(open("request.json"))
 tickers = request["tickers"]
 
 _startTime = t.datetime.now()
-stocks = [Stock(tick) for tick in tickers]
+security = [Security(tick) for tick in tickers]
 
 # Save Data as JSON
-data = {stock.ticker: stock.Dict() for stock in stocks}
+data = {this.ticker: this.Dict() for this in security}
 deltaTimeTotal = (t.datetime.now() - _startTime).total_seconds()
 del _startTime
 data.update({"deltaTimeTotal": deltaTimeTotal})
