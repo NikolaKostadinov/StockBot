@@ -1,21 +1,19 @@
-import yfinance, yfinance.shared as shared, datetime as t, dataframe
+import yfinance.shared as shared, datetime as t, dataframe
 
 class Security:
     def __init__(self, _ticker):
         """Initiate a Security (Stock / Crypto) object"""
         if type(_ticker) is str: self.ticker = _ticker
-        else: raise TypeError("Ticker type shoud be a string value")
+        else: raise TypeError("StockBot: Ticker type shoud be a string value")
         
         # Get Stock Data
         self.now = t.datetime.now()
         self.dataframe = dataframe.download(self.ticker)
-        self.type = "stock"
         if shared._ERRORS:
             self.dataframe = dataframe.download(self.ticker + "-USD")
-            self.type = "crypto"
-            if shared._ERRORS:
-                self.type = None
-                raise TypeError("Ticker not found")
+            if shared._ERRORS: raise TypeError("StockBot: Ticker not found")
+            else: self.type = "crypto"
+        else: self.type = "stock"
             
         # Time
         self.deltaTime = (t.datetime.now() - self.now).total_seconds()
