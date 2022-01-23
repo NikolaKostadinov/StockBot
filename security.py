@@ -29,6 +29,9 @@ class Security:
         self.highValues = self.dataframe["High"].to_list()
         self.lowValues = self.dataframe["Low"].to_list()
         
+        if len(self.openValues) == len(self.closeValues) == len(self.highValues) == len(self.lowValues): self.length = len(self.highValues)
+        else: raise ValueError("StockBot: Missing index")
+        
         # Save Stock Change
         self.openChange = []
         for index in range(1, len(self.openValues)):
