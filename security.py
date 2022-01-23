@@ -1,4 +1,5 @@
 import yfinance.shared as shared, datetime as t, dataframe
+from speculate import *
 
 class Security:
     def __init__(self, _ticker):
@@ -30,21 +31,13 @@ class Security:
         self.lowValues = self.dataframe["Low"].to_list()
         
         if len(self.openValues) == len(self.closeValues) == len(self.highValues) == len(self.lowValues): self.length = len(self.highValues)
-        else: raise ValueError("StockBot: Missing index")
+        else: raise ValueError("StockBot: Missing data")
         
-        # Save Stock Change
-        self.openChange = []
-        for index in range(1, len(self.openValues)):
-            self.openChange.append(self.openValues[index] - self.openValues[index-1])
-        self.closeChange = []
-        for index in range(1, len(self.closeValues)):
-            self.closeChange.append(self.closeValues[index] - self.closeValues[index-1])
-        self.highChange = []
-        for index in range(1, len(self.highValues)):
-            self.highChange.append(self.highValues[index] - self.highValues[index-1])
-        self.lowChange = []
-        for index in range(1, len(self.lowValues)):
-            self.lowChange.append(self.lowValues[index] - self.lowValues[index-1])
+        # A.I.
+        self.openSpec = Speculate(self.openValues)
+        self.closeSpec = Speculate(self.closeValues)
+        self.highSpec = Speculate(self.highValues)
+        self.lowSpec = Speculate(self.lowValues)
     
     def Print(self): print(self.dataframe)
     
