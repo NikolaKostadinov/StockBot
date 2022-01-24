@@ -16,3 +16,6 @@ del _startTime
 data.update({"deltaTimeTotal": deltaTimeTotal})
 jsonString = json.dumps(data, indent=4)
 with open("data.json", "w") as file: file.write(jsonString)
+
+print("StockBot is at rest")
+print(deltaTimeTotal)
