@@ -17,5 +17,6 @@ data.update({"deltaTimeTotal": deltaTimeTotal})
 jsonString = json.dumps(data, indent=4)
 with open("data.json", "w") as file: file.write(jsonString)
 
-print("StockBot is at rest")
-print(deltaTimeTotal)
+now = t.datetime.now().strftime("%H:%M")
+print(f"<{now}| StockBot is at rest")
+print(f"<{now}| Total time: {deltaTimeTotal}")
