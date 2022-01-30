@@ -3,9 +3,7 @@ import datetime as t
 import json
 
 # Get Stocks
-request = json.load(open("request.json"))
-tickers = request["tickers"]
-
+tickers = ["TSLA", "ETH"]
 _startTime = t.datetime.now()
 security = [Security(tick) for tick in tickers]
 
