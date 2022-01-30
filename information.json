@@ -1,9 +1,30 @@
 {
     "TSLA": {
-        "name": "_",
+        "name": "Tesla Inc",
+        "ceo": "Elon Musk",
+        "headquarters": "Palo Alto",
+        "market": "NASDAQ",
+        "description": "_"
+    },
+    "ETH": {
+        "name": "Ether",
         "ceo": "_",
         "headquarters": "_",
-        "market": "_",
+        "market": "crypto",
+        "description": "_"
+    },
+    "AAPL": {
+        "name": "Apple Inc",
+        "ceo": "Tim COCK",
+        "headquarters": "Cupertino",
+        "market": "NASDAQ",
+        "description": "_"
+    },
+    "MSFT": {
+        "name": "Microsoft Corp",
+        "ceo": "Satya Nadella",
+        "headquarters": "Redmond",
+        "market": "NASDAQ",
         "description": "_"
     }
 }
