@@ -3,7 +3,8 @@ import datetime as t
 import json
 
 # Get Stocks
-tickers = ["TSLA", "ETH"]
+tickers = json.load(open("request.json"))["tickers"]
+
 _startTime = t.datetime.now()
 security = [Security(tick) for tick in tickers]
 
@@ -15,6 +16,7 @@ data.update({"deltaTimeTotal": deltaTimeTotal})
 jsonString = json.dumps(data, indent=4)
 with open("data.json", "w") as file: file.write(jsonString)
 
+# Console Feedback
 now = t.datetime.now().strftime("%H:%M")
 print(f"<{now}| StockBot is at rest")
 print(f"<{now}| Total time: {deltaTimeTotal}")
