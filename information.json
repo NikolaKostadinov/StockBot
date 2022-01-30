@@ -1,14 +1,21 @@
 {
     "TSLA": {
         "name": "Tesla Inc",
-        "ceo": "Elon Musk",
+        "ceo": "Elon Kostadinov",
         "headquarters": "Palo Alto",
         "market": "NASDAQ",
         "description": "_"
     },
     "ETH": {
         "name": "Ether",
-        "ceo": "_",
+        "ceo": "Nikola Kostadinov",
+        "headquarters": "_",
+        "market": "crypto",
+        "description": "_"
+    },
+    "BTC": {
+        "name": "Bitcoin",
+        "ceo": "Alexander Valchev",
         "headquarters": "_",
         "market": "crypto",
         "description": "_"
