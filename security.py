@@ -1,6 +1,6 @@
-from matplotlib import ticker
 import yfinance.shared as shared, datetime as t, dataframe, json
 from speculate import *
+from termcolor import colored
 
 class Security:
     def __init__(self, _ticker):
@@ -48,7 +48,7 @@ class Security:
         now = t.datetime.now().strftime("%H:%M")
         
         # Console Feedback
-        print(f"<{now}| {self.ticker} data successfully loaded")
+        print(colored(f"<{now}| {self.ticker} data successfully loaded", "green"))
     
     def Print(self): print(self.dataframe)
     

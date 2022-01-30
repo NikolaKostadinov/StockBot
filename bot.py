@@ -1,6 +1,11 @@
 from security import *
+from termcolor import colored
 import datetime as t
 import json
+
+# Start
+now = t.datetime.now().strftime("%H:%M")
+print(colored(f"<{now}| StockBot is running", "yellow"))
 
 # Get Stocks
 tickers = json.load(open("request.json"))["tickers"]
@@ -18,5 +23,5 @@ with open("data.json", "w") as file: file.write(jsonString)
 
 # Console Feedback
 now = t.datetime.now().strftime("%H:%M")
-print(f"<{now}| StockBot is at rest")
-print(f"<{now}| Total time: {deltaTimeTotal}")
+print(colored(f"<{now}| StockBot is at rest", "blue"))
+print(colored(f"<{now}| Total time: {deltaTimeTotal}", "blue"))
