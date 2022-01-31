@@ -52,10 +52,10 @@ class Security:
         else: raise ValueError("StockBot: Missing data")
         
         # A.I.
-        self.openSpec = Speculate(self.openValues)
-        self.closeSpec = Speculate(self.closeValues)
-        self.highSpec = Speculate(self.highValues)
-        self.lowSpec = Speculate(self.lowValues)
+        self.openSpec = Speculate(self.openValues, self.ticker, 0)
+        self.closeSpec = Speculate(self.closeValues, self.ticker, 1)
+        self.highSpec = Speculate(self.highValues, self.ticker, 2)
+        self.lowSpec = Speculate(self.lowValues, self.ticker, 3)
         
         # Time
         self.deltaTime = (t.datetime.now() - self.now).total_seconds()
