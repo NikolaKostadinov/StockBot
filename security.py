@@ -1,6 +1,6 @@
 import yfinance.shared as shared, datetime as t, dataframe, json
-from speculate import *
 from termcolor import colored
+from speculate import Speculate
 
 class Security:
     def __init__(self, _ticker):
