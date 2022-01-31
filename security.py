@@ -12,6 +12,10 @@ class Security:
         else: raise TypeError("StockBot: Ticker type shoud be a string value")
         
         # Checker 2
+        if len(self.ticker) > 5: raise TypeError("StockBot: Ticker has too many letters")
+        elif len(self.ticker) < 1: raise TypeError("StockBot: Ticker has not enough letters")
+        
+        # Checker 3
         try: json.load(open("information.json"))[self.ticker]
         except KeyError:
             print(colored(f"No information for {self.ticker} in information.json", "red"))
