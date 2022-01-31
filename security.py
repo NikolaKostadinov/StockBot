@@ -1,6 +1,6 @@
 import yfinance.shared as shared, datetime as t, dataframe, json
 from termcolor import colored
-from speculate import Speculate
+from speculate import *
 
 class Security:
     def __init__(self, _ticker):
@@ -52,10 +52,10 @@ class Security:
         else: raise ValueError("StockBot: Missing data")
         
         # A.I.
-        self.openSpec = Speculate(self.openValues, self.ticker, 0)
-        self.closeSpec = Speculate(self.closeValues, self.ticker, 1)
-        self.highSpec = Speculate(self.highValues, self.ticker, 2)
-        self.lowSpec = Speculate(self.lowValues, self.ticker, 3)
+        self.openSpec = Spec(self.openValues, self.ticker, 0)
+        self.closeSpec = Spec(self.closeValues, self.ticker, 1)
+        self.highSpec = Spec(self.highValues, self.ticker, 2)
+        self.lowSpec = Spec(self.lowValues, self.ticker, 3)
         
         # Time
         self.deltaTime = (t.datetime.now() - self.now).total_seconds()
