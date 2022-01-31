@@ -33,5 +33,19 @@
         "headquarters": "Redmond",
         "market": "NASDAQ",
         "description": "_"
+    },
+    "T": {
+        "name": null,
+        "ceo": null,
+        "headquarters": null,
+        "market": null,
+        "description": null
+    },
+    "OOOOO": {
+        "name": null,
+        "ceo": null,
+        "headquarters": null,
+        "market": null,
+        "description": null
     }
 }

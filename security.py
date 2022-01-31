@@ -7,12 +7,27 @@ class Security:
         
         """Initiate a Security (Stock / Crypto) object"""
         
-        # Checker
+        # Checker 1
         if type(_ticker) is str: self.ticker = _ticker
         else: raise TypeError("StockBot: Ticker type shoud be a string value")
         
+        # Checker 2
         try: json.load(open("information.json"))[self.ticker]
-        except KeyError: print("No info in information.json")
+        except KeyError:
+            print(colored(f"No information for {self.ticker} in information.json", "red"))
+            data = json.load(open("information.json"))
+            
+            nullInfo = {
+                "name": None,
+                "ceo": None,
+                "headquarters": None,
+                "market": None,
+                "description": None
+            }
+            
+            data[self.ticker] = nullInfo
+            jsonString = json.dumps(data, indent=4)
+            with open("information.json", "w") as file: file.write(jsonString)
         
         # Get Stock Data
         if json.load(open("information.json"))[self.ticker]["market"] == "crypto":
