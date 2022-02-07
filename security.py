@@ -58,7 +58,6 @@ class Security:
         self.lowSpec = Spec(self.lowValues, self.ticker, 3)
         
         # Time
-        self.deltaTime = (bravotime.Now() - self.now.total_seconds())
         self.minuteNow = self.now.minute
         self.hourNow = self.now.hour
         self.dayNow = self.now.day
