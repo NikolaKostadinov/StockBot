@@ -1,4 +1,4 @@
-import datetime as t, numpy as np, json
+import bravotime, numpy as np, json
 from termcolor import colored
 
 def Spec(dataArray, ticker, id):
@@ -13,7 +13,7 @@ def Spec(dataArray, ticker, id):
     # Parameters
     height0 = len(dataArray)
     
-    height = [height0, height0]
+    height = [2, 2]
     layers = len(height)
     
     # Load A.I. Data
@@ -30,6 +30,6 @@ def Spec(dataArray, ticker, id):
     specArray = secondIter
     
     # Return Values
-    now = t.datetime.now().strftime("%H:%M")
+    now = bravotime.NowString()
     print(colored(f"<{now}| Speculation for {ticker}<{id}> is ready", "green"))
     return specArray

@@ -1,6 +1,6 @@
-import yfinance.shared as shared, datetime as t, dataframe, json
-from termcolor import colored
+import yfinance.shared as shared, datetime as t, bravotime, dataframe, json
 from speculate import *
+from termcolor import colored
 
 class Security:
     def __init__(self, _ticker):
@@ -35,10 +35,10 @@ class Security:
         
         # Get Stock Data
         if json.load(open("information.json"))[self.ticker]["market"] == "crypto":
-            self.now = t.datetime.now()
+            self.now = bravotime.Now()
             self.dataframe = dataframe.Download(self.ticker + "-USD")
         else:
-            self.now = t.datetime.now()
+            self.now = bravotime.Now()
             self.dataframe = dataframe.Download(self.ticker)
         if shared._ERRORS: raise TypeError("StockBot: Ticker not found")
         
@@ -58,15 +58,15 @@ class Security:
         self.lowSpec = Spec(self.lowValues, self.ticker, 3)
         
         # Time
-        self.deltaTime = (t.datetime.now() - self.now).total_seconds()
+        self.deltaTime = (bravotime.Now() - self.now.total_seconds())
         self.minuteNow = self.now.minute
         self.hourNow = self.now.hour
         self.dayNow = self.now.day
         self.monthNow = self.now.month
         self.yearNow = self.now.year
-        now = t.datetime.now().strftime("%H:%M")
         
         # Console Feedback
+        now = bravotime.NowString()
         print(colored(f"<{now}| {self.ticker} data successfully loaded", "green"))
     
     def Print(self): print(self.dataframe)
