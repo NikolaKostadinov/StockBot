@@ -1,4 +1,4 @@
-import bravotime, json
+import bravotime, json, nmath
 from neuralnetwork import *
 from termcolor import colored
 
@@ -17,11 +17,13 @@ def Spec(dataArray, ticker, id):
     W = None # Depends on <ai.json>
     
     X = np.array(dataArray)
+    N = np.maximum(X)
+    X = nmath.sigmoid(X / N)
     
     # A.I.
     AI = NeuralNetwork(L)
     AI.ImportWeight(W)
-    specArray = AI.Forward(X)
+    specArray = (N * nmath.logit(AI.Forward(X))).tolist()
     
     # Return Values
     now = bravotime.NowString()
