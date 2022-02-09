@@ -1,5 +1,4 @@
 import numpy as np, nmath
-from numpy import shape
 
 class NeuralNetwork:
     def __init__(self, H):

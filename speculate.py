@@ -11,12 +11,17 @@ def Spec(dataArray, ticker, id):
     if type(ticker) is not str: raise TypeError("StockBot Speculate Module: Input should be a string")
     
     # Set Input Data for A.I.
-    w = None # Depends on <ai.json>
-    x = None # Depends on <dataArray>
+    L = [1, 3, 9, 9, 3, 1/24]
+    L = [int(len(dataArray) * l) for l in L]
+    
+    W = None # Depends on <ai.json>
+    
+    X = np.array(dataArray)
     
     # A.I.
-    AI = NeuralNetwork(w)
-    specArray = AI.Forward(x)
+    AI = NeuralNetwork(L)
+    AI.ImportWeight(W)
+    specArray = AI.Forward(X)
     
     # Return Values
     now = bravotime.NowString()
