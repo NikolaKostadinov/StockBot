@@ -109,6 +109,9 @@ class Security:
         now = bravotime.NowString()
         print(colored(f"<{now}| {self.ticker} data successfully loaded", "green"))
     
+        # Vulyo Magic
+        self._createdOn = 1617194210928
+
     def Print(self): print(self.dataframe)
     
     def Dict(self):
