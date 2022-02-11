@@ -68,11 +68,40 @@ class Security:
         for index in range(1, self.length):
             self.lowRate[index] = self.lowValues[index] - self.lowValues[index-1]
         
+        # Time
+        self.minuteNow = self.now.minute
+        self.hourNow = self.now.hour
+        self.dayNow = self.now.day
+        self.monthNow = self.now.month
+        self.yearNow = self.now.year
+        
+        # Console Feedback
+        now = bravotime.NowString()
+        print(colored(f"<{now}| {self.ticker} data successfully loaded", "green"))
+    
+        # Vulyo Magic
+        self._createdOn = 1617194210928
+
+    def SpeculateUpdate(self):
+        
+        """"""
+        
         # A.I.
-        self.openMoment = Spec(self.openRate, self.ticker, 0)
-        self.closeMoment = Spec(self.closeRate, self.ticker, 1)
-        self.highMoment = Spec(self.highRate, self.ticker, 2)
-        self.lowMoment = Spec(self.lowRate, self.ticker, 3)
+        self.openMoment = Spec(self.openRate)
+        now = bravotime.NowString()
+        print(colored(f"<{now}| Speculation for {self.ticker}<open> is ready", "green"))
+        
+        self.closeMoment = Spec(self.closeRate)
+        now = bravotime.NowString()
+        print(colored(f"<{now}| Speculation for {self.ticker}<close> is ready", "green"))
+        
+        self.highMoment = Spec(self.highRate)
+        now = bravotime.NowString()
+        print(colored(f"<{now}| Speculation for {self.ticker}<high> is ready", "green"))
+        
+        self.lowMoment = Spec(self.lowRate)
+        now = bravotime.NowString()
+        print(colored(f"<{now}| Speculation for {self.ticker}<low> is ready", "green"))
         
         # Return New Values
         self.openSpec = [0 for _, _ in enumerate(self.openMoment)]
@@ -98,19 +127,7 @@ class Security:
         if len(self.openSpec) == len(self.closeSpec) == len(self.highSpec) == len(self.lowSpec): pass
         else: raise ValueError("StockBot: Missing data")
         
-        # Time
-        self.minuteNow = self.now.minute
-        self.hourNow = self.now.hour
-        self.dayNow = self.now.day
-        self.monthNow = self.now.month
-        self.yearNow = self.now.year
-        
-        # Console Feedback
-        now = bravotime.NowString()
-        print(colored(f"<{now}| {self.ticker} data successfully loaded", "green"))
-    
-        # Vulyo Magic
-        self._createdOn = 1617194210928
+        return self
 
     def Print(self): print(self.dataframe)
     

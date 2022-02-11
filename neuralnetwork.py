@@ -33,11 +33,6 @@ class NeuralNetwork:
         
         """Forward Propagate (return output data)"""
         
-        # Forward Math:
-        # A{0} = X
-        # Z{n} = W{n} A{n-1}
-        # A{n} = σ( Z{n} )
-        
         # Compute Matrices
         self.A[0] = X
 
@@ -58,18 +53,11 @@ class NeuralNetwork:
         
         """Return error values of the neural network"""
         
-        # Error Math:
-        # err = A{-1} - R
-        
-        # Compute Errors
         return self.A[-1] - R
     
     def TotalError(self, R):
         
         """Return total error of the neural network"""
-        
-        # Total Error Math:
-        # err = Σ<over rows> ( A{-1}<row> - R<row> )²
         
         return sum(self.Error(R)**2)
         
@@ -77,12 +65,7 @@ class NeuralNetwork:
         
         """"""
         
-        # Backward Math:
-        # δ{-1} = (A{-1} - R) o σ'( Z{-1} )
-        # δ{n} = W*{n+1} δ{n+1} o σ'( Z{n} )
-        # ΔW{n} = - δ{n} A*{n-1}
-        
-        learrate = np.e
+        learrate = np.log(2)
         
         # Initiate Matrices
         delta = [None for _ in range(self.layersLength)]
