@@ -48,6 +48,12 @@ class NeuralNetwork:
         # Return
         return self.A[-1]
     
+    def Forwards(self, Xs):
+
+        """"""
+            
+        return [self.Forward(X) for X in Xs]
+    
     def Error(self, R):
         
         """Return error values of the neural network"""
@@ -96,13 +102,16 @@ class NeuralNetwork:
             
         return deltaW
     
+    def UpdateWeight(self, deltaW):
+        
+        """"""
+        
+        for index in range(1, self.layersLength):
+            if deltaW[index] is not None:
+                self.W[index] = self.W[index] + deltaW[index]
+    
     def Backward(self, R):
         
         """Backpropagation (train neural network)"""
         
-        deltaW = self.Optimisation(R)
-        
-        # Update Weights
-        for index in range(1, self.layersLength):
-            if deltaW[index] is not None:
-                self.W[index] = self.W[index] + deltaW[index]
+        self.UpdateWeight(self.Optimisation(R))

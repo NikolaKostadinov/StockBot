@@ -57,5 +57,10 @@ def Spec(dataArray, ticker, id):
     
     # Return Values
     now = bravotime.NowString()
-    print(colored(f"<{now}| Speculation for {ticker}<{id}> is ready", "green"))
+    if id == 0: ids = "open"
+    elif id == 1: ids = "close"
+    elif id == 2: ids = "high"
+    elif id == 3: ids = "low"
+    else: ids = id
+    print(colored(f"<{now}| Speculation for {ticker}<{ids}> is ready", "green"))
     return specArray
