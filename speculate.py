@@ -1,4 +1,4 @@
-import bravotime, json, nmath
+import json, nmath
 from neuralnetwork import *
 from termcolor import colored
 
@@ -48,3 +48,30 @@ def Spec(dataArray):
     specArray = (N * nmath.logit(AI.Forward(X))).tolist()
     
     return specArray
+
+def Pot(dataArray):
+    
+    """"""
+    
+    # Checker
+    if type(dataArray) is not list: raise TypeError("StockBot Speculate Module: Input should be a list")
+    
+    # Set Input Data for A.I. Optimisation
+    L = [1, 3, 9, 9, 3, 1/24]
+    L = [int(len(dataArray) * l) for l in L]
+    
+    weightData = json.load(open("ai.json"))
+    W = [None for _ in weightData]
+    for index in weightData:
+        W[int(index)] = np.array(weightData[index])
+    
+    X = np.array(dataArray)
+    N = np.amax(X, axis=0)
+    X = nmath.sigmoid(X / N)
+    
+    # A.I.
+    AI = NeuralNetwork(L)
+    AI.ImportWeight(W)
+    #AI.Optimisation(R)
+    
+    #return specArray

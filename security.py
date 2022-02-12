@@ -3,19 +3,23 @@ from speculate import *
 from termcolor import colored
 
 class Security:
-    def __init__(self, _ticker):
+    def __init__(self, **kwargs):
         
         """Initiate a Security (Stock / Crypto) object"""
         
         # Checker 1
+        if "ticker" in kwargs.keys(): _ticker = kwargs["ticker"]
+        else: raise TypeError("StockBot: No ticker input")
+        
+        # Checker 2
         if type(_ticker) is str: self.ticker = _ticker
         else: raise TypeError("StockBot: Ticker type shoud be a string value")
         
-        # Checker 2
+        # Checker 3
         if len(self.ticker) > 5: raise TypeError("StockBot: Ticker has too many letters")
         elif len(self.ticker) < 1: raise TypeError("StockBot: Ticker has not enough letters")
         
-        # Checker 3
+        # Checker 4
         try: json.load(open("information.json"))[self.ticker]
         except KeyError:
             print(colored(f"No information for {self.ticker} in information.json", "red"))
@@ -33,13 +37,28 @@ class Security:
             jsonString = json.dumps(data, indent=4)
             with open("information.json", "w") as file: file.write(jsonString)
         
+        # Set Date And Get Security Data
+        if "date" in kwargs:
+            date = kwargs["date"]
+            
+            if json.load(open("information.json"))[self.ticker]["market"] == "crypto":
+                self.dataframe = dataframe.DownloadDate(self.ticker + "-USD", date)
+            else: self.dataframe = dataframe.DownloadDate(self.ticker, date)
+            if shared._ERRORS: raise TypeError("StockBot: Ticker not found")
+            
+            self.now = bravotime.Convert(date)
+        else:
+            if json.load(open("information.json"))[self.ticker]["market"] == "crypto":
+                self.dataframe = dataframe.Download(self.ticker + "-USD")
+            else: self.dataframe = dataframe.Download(self.ticker)
+            if shared._ERRORS: raise TypeError("StockBot: Ticker not found")
+            
+            self.now = bravotime.Now()
+        
         # Get Security Data
         if json.load(open("information.json"))[self.ticker]["market"] == "crypto":
-            self.now = bravotime.Now()
             self.dataframe = dataframe.Download(self.ticker + "-USD")
-        else:
-            self.now = bravotime.Now()
-            self.dataframe = dataframe.Download(self.ticker)
+        else: self.dataframe = dataframe.Download(self.ticker)
         if shared._ERRORS: raise TypeError("StockBot: Ticker not found")
         
         # Save Security Data
@@ -81,6 +100,12 @@ class Security:
     
         # Vulyo Magic
         self._createdOn = 1617194210928
+
+    def SpeculatePotential(self):
+        
+        """"""
+        
+        return [Pot(self.openRate), Pot(self.closeRate), Pot(self.highRate), Pot(self.lowRate)]
 
     def SpeculateUpdate(self):
         

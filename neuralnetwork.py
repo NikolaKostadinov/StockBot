@@ -65,7 +65,7 @@ class NeuralNetwork:
         
         """"""
         
-        learrate = np.log(2)
+        learrate = np.log(np.pi)
         
         # Initiate Matrices
         delta = [None for _ in range(self.layersLength)]
