@@ -11,9 +11,7 @@ class NeuralNetwork:
 
         # Random Weights
         self.W = [None for _ in range(self.layersLength)]
-
-        for index in range(1, self.layersLength):
-            self.W[index] = np.random.randn(H[index-1], H[index])
+        for index in range(1, self.layersLength): self.W[index] = np.random.randn(H[index-1], H[index])
 
         # Activation and "Semiactivation" Matrices
         self.A = [None for _ in range(self.layersLength)]
@@ -24,11 +22,10 @@ class NeuralNetwork:
         """Import weight data to neural network"""
 
         if type(W) is list: self.W = W
-        else:TypeError("StockBot Neural Module: Weight input should be a list")
+        else: TypeError("StockBot Neural Module: Weight input should be a list")
 
         for _, this in enumerate(self.W):
-            if type(this) is not np.ndarray:
-                TypeError(f"StockBot Neural Module: {this} should be a numpy matrix")
+            if type(this) is not np.ndarray: TypeError(f"StockBot Neural Module: {this} should be a numpy matrix")
 
         self.W = W
 
@@ -36,7 +33,6 @@ class NeuralNetwork:
         
         """Propagate forward (return output data)"""
         
-        X = np.append(X, 0)
         self.A[0] = X
         
         # Compute Matrices

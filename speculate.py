@@ -19,11 +19,12 @@ def UpWei(dataArray, weightArray):
     wDict = {str(index): None for index in range(n)}
     for index in range(n):
         if weightArray[index] is None: wDict[str(index)] = None
-        else: wDict[str(index)] = weightArray[index].tolist(); print(weightArray[index].tolist())
+        else: wDict[str(index)] = weightArray[index].tolist()
 
     # Convert to JSON
     jsonString = json.dumps(wDict, indent=4)
     with open("ai.json", "w") as file: file.write(jsonString)
+    with open("ai.txt", "w") as file: file.write(str(wDict)) #
 
 
 def New(dataArray):
@@ -55,9 +56,8 @@ def Spec(dataArray):
 
     weightData = json.load(open("ai.json"))
     W = [None for _ in weightData]
-    for index in weightData:
-        W[int(index)] = np.array(weightData[index])
-
+    for index in weightData: W[int(index)] = np.array(weightData[index])
+    
     X = np.array(dataArray)
     N = np.amax(X, axis=0)
     X = nmath.sigmoid(X / N)

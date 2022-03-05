@@ -112,7 +112,7 @@ class Security:
 
         # Vulyo Magic
         self._createdOn = 1617194210928
-
+        
     def SpeculateUpdate(self):
         
         """"""
