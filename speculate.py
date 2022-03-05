@@ -24,7 +24,6 @@ def UpWei(dataArray, weightArray):
     # Convert to JSON
     jsonString = json.dumps(wDict, indent=4)
     with open("ai.json", "w") as file: file.write(jsonString)
-    with open("ai.txt", "w") as file: file.write(str(wDict)) #
 
 
 def New(dataArray):
