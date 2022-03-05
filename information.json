@@ -1,28 +1,28 @@
 {
     "TSLA": {
         "name": "Tesla Inc",
-        "ceo": "Elon Kostadinov",
+        "ceo": "Elon Musk",
         "headquarters": "Palo Alto",
         "market": "NASDAQ",
         "description": "_"
     },
     "ETH": {
         "name": "Ether",
-        "ceo": "Nikola Kostadinov",
+        "ceo": "Vitalik Buterin",
         "headquarters": "_",
         "market": "crypto",
         "description": "_"
     },
     "BTC": {
         "name": "Bitcoin",
-        "ceo": "Alexander Valchev",
+        "ceo": "Satoshi Nakamoto",
         "headquarters": "_",
         "market": "crypto",
         "description": "_"
     },
     "AAPL": {
         "name": "Apple Inc",
-        "ceo": "Tim COCK",
+        "ceo": "Tim Cook",
         "headquarters": "Cupertino",
         "market": "NASDAQ",
         "description": "_"
@@ -31,6 +31,41 @@
         "name": "Microsoft Corp",
         "ceo": "Satya Nadella",
         "headquarters": "Redmond",
+        "market": "NASDAQ",
+        "description": "_"
+    },
+    "ADA": {
+        "name": "Cardano",
+        "ceo": "Charles Hoskinson",
+        "headquarters": "_",
+        "market": "crypto",
+        "description": "_"
+    },
+    "DOT1": {
+        "name": "Polkadot",
+        "ceo": "Gavin Wood",
+        "headquarters": "_",
+        "market": "crypto",
+        "description": "_"
+    },
+    "X": {
+        "name": "United States Steel Corporation",
+        "ceo": "David Burritt",
+        "headquarters": "Pittsburgh",
+        "market": "NYSE",
+        "description": "_"
+    },
+    "NKE": {
+        "name": "Nike Inc",
+        "ceo": "John Donahoe",
+        "headquarters": "Beaberton",
+        "market": "NYSE",
+        "description": "_"
+    },
+    "GOOGL": {
+        "name": "Alphabet Inc",
+        "ceo": "Sundar Pichai",
+        "headquarters": "Mountain View",
         "market": "NASDAQ",
         "description": "_"
     }
