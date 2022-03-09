@@ -13,7 +13,7 @@ print(colored(f"<{now}| StockBot is running", "yellow"))
 tickers = json.load(open("request.json"))["tickers"]
 
 _startTime = bravotime.Now()
-security = [Security(ticker=tick) for tick in tickers]
+security = [Security(ticker=tick, days=240) for tick in tickers]
 security = list(map(lambda x: x.SpeculateUpdate(), security))
 
 # Save Data as JSON
@@ -27,8 +27,9 @@ with open("data.json", "w") as file: file.write(jsonString)
 # Send Data to Server 0
 fileForTransfer = "data.json"
 toInstance = "instance-stockbot-0"
+zone = "europe-west6-a"
 
-os.system(f"gcloud compute scp {fileForTransfer} --zone=europe-west6-a {toInstance}:~")
+os.system(f"gcloud compute scp {fileForTransfer} --zone=eur{zone} {toInstance}:~")
 
 now = bravotime.NowString()
 print(colored(f"<{now}| Data uploaded to <{toInstance}>", "green"))

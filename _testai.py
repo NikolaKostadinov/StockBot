@@ -2,8 +2,8 @@ import neuralnetwork as nn, numpy as np, matplotlib.pyplot as plt
 
 layers = [24, 72, 216, 216, 72, 1]
 bot = nn.NeuralNetwork(layers)
-input = np.array([1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
-want = np.array([1])
+input = np.array([1 for _ in range(240)])
+want = np.array([1 for _ in range(10)])
 n = 10*sum(layers)
 
 y = []
