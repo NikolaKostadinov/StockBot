@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>StockBot</title>
+    <link rel="shortcut icon" href="icon.ico" type="image/x-icon"> 
+    <script src="/src/app.js" type="module"></script>
+    <title>JavaScript Candlestick Chart</title>
+
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-core.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-cartesian.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
+</head>
+
+<body id="body" class="body">
+    <div id="generalDiv" class="generalDiv">
+
+        <!--Navigation_Bar-->
+
+        <header class="headerP">
+            <img src="./images/StockBot_Logo.png" style="width:50px; height:50px; float: left; padding: 10px; top:0%; left:0%; bottom:0%;background-color: var(--header-color);">
+            <nav>
+                <a class="homeBtn" href="/">StockBot</a>
+                <li id="user">
+                    <a id="logoutBtn" href="javascript:void(0)">Logout</a>
+                </li>
+                <li id="guest">
+                    <a class="registerBtn" href="/register">Register</a>
+                    <a class="loginBtn" href="/login">Login</a>
+                </li>
+            </nav>
+        </header>
+
+        <!--Main_Page_Content-->
+
+        <main id="main" class="main"></main>
+        <div class="detailsDiagram" id="detailsContainer"></div>
+
+    </div>    
+</body>
+
+</html>
