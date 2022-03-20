@@ -1,8 +1,9 @@
 import { getAllInvestments, getInvestmentyId } from '../api/data.js';
 import { html } from '../lib.js';
 
+const detailsTemplate = (investments, investment, onLoad, ImageLoad, loadName) =>
 
-const detailsTemplate = (investments, investment, onLoad, ImageLoad, loadCEO) => html`
+html`
 <section id="detailsPage">
 
     ${onLoad(investment)}
@@ -14,8 +15,7 @@ const detailsTemplate = (investments, investment, onLoad, ImageLoad, loadCEO) =>
             <div class="investmentText">
                 <h1 class="detailed-heading">
                     <img class="detailed-investmentLogo" src=${ImageLoad(investment)}>
-                    <a class="detailed-investmentName">${investment.ticker}</a> 
-                    <a class="detailed-investmentCEO"> CEO: ${loadCEO(investment)}</a>
+                    <a class="detailed-investmentName" id="securityName">${loadName(investment)}</a>
                 </h1>
             </div>
         </div>
@@ -39,32 +39,22 @@ const investmentCard = (investment, ImageLoad) => html`
 </p>`;
 
 export async function detailsPage(ctx) {
+
     const investments = await getAllInvestments();
     const investment = await getInvestmentyId(ctx.params.ticker);
-    ctx.render(detailsTemplate(investments, investment, onLoad, ImageLoad, loadCEO));
+    const request = ["TSLA","MSFT","NKE","AAPL","KO","X","GOOGL","FB","BAC","AMD","BABA","T","HPQ","PFE","PYPL","AMZN","ETH","BTC","ADA"];
+    const requestNames = ["Tesla Incorporation","Microsoft Corporation","Nike Incorporation","Apple Incorporation","The Coca-Cola Company","United States Steel Corporation","Alphabet Incorporation","Meta Platforms Incorporation","Bank of America Corporation","Advanced Micro Devices Incorporation","Alibaba Group Holding Limited","AT&T Incorporation","Hewlett-Packard Incorporation","Pfizer Incorporation","PayPal Holdings Incorporation","Amazon.com Incorporation","Ether","Bitcoin","Cardano"];
 
-    function loadCEO (investment) {
-        if (investment.ticker == "TSLA") {
-            return 'Elon Musk';
-        } else if (investment.ticker == "Bitcoin") {
-            return 'Roger Ver';
-        } else if (investment.ticker == "ETH") {
-            return 'Vitalik Buterin';
-        }  else {
-            return "no CEO";
-        }
+    ctx.render(detailsTemplate(investments, investment, onLoad, ImageLoad, loadName));
+
+    function loadName (investment) {
+        for (let i = 0; i < request.length; i++) if (investment.ticker == request[i]) return requestNames[i];
+        return "_";
     }
 
     function ImageLoad(investment) {
-        if (investment.ticker == "TSLA") {
-            return '../images/TSLA_logo.jpg';
-        } else if (investment.ticker == "Bitcoin") {
-            return '../images/Bitcoin_logo.png';
-        } else if (investment.ticker == "ETH") {
-            return '../images/ETH_logo.png';
-        }  else {
-            return "";
-        }
+        for (const tick of request) if (investment.ticker == tick) return `../images/${tick}_logo.png`;
+        return "";
     }
 
     function onLoad (investment) {
@@ -76,18 +66,21 @@ export async function detailsPage(ctx) {
 
         if (investment != undefined && investment.openValues) {
 
+            const off = 160;
+            
             const divConteiner = document.getElementById("detailsContainer");
             divConteiner.style.visibility = 'visible';
             divConteiner.textContent = "";
 
             let fullArr = [];
             let arr = [];
-            for (let i=0; i<investment.length; i++) {
-                arr = [1643673600000+i*864000];
-                arr.push(investment.openValues[i]);
-                arr.push(investment.highValues[i]);
-                arr.push(investment.lowValues[i]);
-                arr.push(investment.closeValues[i]);
+            for (let i=0; i < investment.length-off; i++) {
+                arr = [];
+                arr.push(investment.dateIndices[i]*1000);
+                arr.push(investment.openValues[investment.length-i]);
+                arr.push(investment.highValues[investment.length-i]);
+                arr.push(investment.lowValues[investment.length-i]);
+                arr.push(investment.closeValues[investment.length-i]);
 
                 fullArr.push(arr);
             }

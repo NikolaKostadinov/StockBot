@@ -4,7 +4,7 @@
 }
 
 ::selection {
-    background: #34fa6b;
+    background: var(--select-color);
 }
 
 :root {
@@ -13,29 +13,26 @@
     --catalog-color: #b5c6ff;
     --backg-color: #161629;
     --alert-color: #0000ff;
+    --select-color: #34fa6b;
 }
 
 .body {
     display: block;
     /*background-image: url('./images/coustom-background.jpg');*/
     background-color: var(--backg-color);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% 100%;
-    overflow: hidden;
+    /*overflow: hidden;*/
     font-family: Blazma;
 }
 
 .headerP {
     background-color: var(--header-color);
-    padding-left: 0%;
-    size: 20%;
+    padding-left: 0;
+    size: 20vh;
     position: fixed;
-    top: 0%;
-    left: 0%;
-    right: 0%;
-    padding-bottom: 0%;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-bottom: 0;
     overflow: auto;
 }
 
@@ -58,62 +55,49 @@ nav {
     display: block;
     text-align: center;
     color: var(--font-color);
-    padding: 1rem 1rem;
+    padding: 1% 1%;
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 3rem;
     float: left;
 }
 
-.registerBtn {
+.registerBtn, #logoutBtn, .loginBtn {
     display: block;
     text-align: center;
     color: var(--font-color);
-    padding: 1rem 1rem;
+    padding: 1% 5%;
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 3rem;
     float: right;
 }
 
-#logoutBtn {
-    display: block;
-    text-align: center;
-    color: var(--font-color);
-    padding: 1rem 1rem;
-    text-decoration: none;
-    font-size: 2rem;
-    float: right;
-}
-
-.loginBtn {
-    display: block;
-    text-align: center;
-    color: var(--font-color);
-    padding: 1rem 1rem;
-    text-decoration: none;
-    font-size: 2rem;
-    float: right;
+.homeBtn:hover, .registerBtn:hover, #logoutBtn:hover, .loginBtn:hover{
+    background-color: var(--select-color);
 }
 
 .main {
-    margin-top: 6rem;
+    margin-top: 20vh;
 }
     
 .catalogs {
-    box-shadow: 0.2rem 0.3rem 1rem #00000075;
-    /*border: 1px; 
-    border-style: solid; 
-    border-color:#000000;*/
-    border-radius: 0.5rem;
+    box-shadow: 0.2% 0.3% 1% #00000075;
+    border-radius: 0.5vw;
     background-color: var(--catalog-color);
     align-items: center;
-    width: 50rem;
+    width: 45vw;
+    height: 10vh;
     float: left;
-    margin: 0.5rem;
+    margin: 0.5%;
+    margin-left: 2vw;
+}
+
+.catalogs:hover {
+    background-color: var(--font-color);
 }
 
 .miniLogo {
-    width: 3rem; 
-    height: 3rem; 
+    width: 30%;
+    height: width; 
     float: left; 
     top: 0%; 
     left: 0%; 
@@ -122,19 +106,19 @@ nav {
 
 .name {
     border: 0;
-    border-right: 0.1rem;
+    border-right: 0.4vw;
     border-style: solid; 
     border-color: var(--header-color);
-    padding: 1rem;
-    width: 10rem;
+    padding: 2%;
+    width: 25%;
     float: left;
     text-align: right;
-    font-size: 2rem;
+    font-size: 1.2rem;
 }
 
 .statisticsA {
-    padding: 1rem;
-    width: 25rem;
+    padding: 2%;
+    width: 20vw;
     float: left;
     font-size: 2.5rem;
     text-align: left;
@@ -142,9 +126,9 @@ nav {
 
 .details {
     float: left;
-    margin: 1.2rem;
-    padding: 0.5rem;
-    width: 6rem;
+    margin: 1.3%;
+    padding: 1.5%;
+    width: 16%;
     font-size: 1.6rem;
     align-items: center;
     text-align: center;
@@ -157,51 +141,52 @@ nav {
     border-radius: 1.5rem;
 }
 
+.details:hover {
+    background-color: var(--select-color);
+}
+
 .diagramLi {
-    border:1px; 
-    border-style:solid; 
-    border-color:#000000; 
     padding: 0%;
-    width: 35%;
+    width: 40%;
     height: 35vw;
     float: right;
-    margin: 5px;
-    margin-left: 0%;
+    margin: 1%;
+    margin-right: 5vw;
 }
 
 .signInPage {
-    background-color: aliceblue;
-    border-style:solid;
-    border-radius: 5px;
-    border-color: #000000;
-    box-shadow: 3px 5px #8a8a8a;
-    width: 40%;
+    background-color: var(--catalog-color);
+    border-style: solid;
+    border-radius: 1rem;
+    box-shadow: 0.2% 0.3% 1% #00000075;
+    width: 40vw;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 3%;
-    font-size: 20px;
+    margin-bottom: auto;
+    margin-top: 20vh;
+    font-size: 2rem;
 }
 
 .signUpPage {
-    background-color: aliceblue;
-    border-style:solid;
-    border-radius: 5px;
-    border-color: #000000;
-    box-shadow: 3px 5px #8a8a8a;
-    width: 40%;
+    background-color: var(--catalog-color);
+    border-style: solid;
+    border-radius: 1rem;
+    box-shadow: 0.2% 0.3% 1% #00000075;
+    width: 40vw;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 3%;
-    font-size: 20px;
+    margin-bottom: auto;
+    margin-top: 20vh;
+    font-size: 2rem;
 }
 
 .heading {
-    border:0px;
+    border: 0px;
     border-bottom: 3px;
-    border-style:solid; 
+    border-style: solid; 
     border-color:#000000; 
     padding-top: 3%;
-    font-size: 36px;
+    font-size: 4rem;
     text-align: center;
     padding-bottom: 3%;
 }
@@ -211,7 +196,6 @@ nav {
 }
 
 .signParams {
-
     text-align: center;
     display: block;
     margin-left: auto;
@@ -231,7 +215,7 @@ nav {
     padding-top: 1%;
     border-style: solid;
     border-radius: 5px;
-    border-color: #535252;
+    border-color: #000000;
     width: 50%;
     size: 20%;
     font-size: 20px;
@@ -242,7 +226,7 @@ nav {
     padding-top: 1%;
     border-style: solid;
     border-radius: 5px;
-    border-color: #535252;
+    border-color: #000000;
     width: 50%;
     size: 20%;
     font-size: 20px;
@@ -253,7 +237,7 @@ nav {
     padding-top: 1%;
     border-style: solid;
     border-radius: 5px;
-    border-color: #535252;
+    border-color: #000000;
     width: 50%;
     size: 20%;
     font-size: 20px;
@@ -295,89 +279,84 @@ nav {
 
 .detailed-heading {
     float: left;
-    margin-top: 0%;
-    width: 70%;
+    margin-bottom: 0%;
+    width: 60vw;
 }
 
 .detailed-investmentLogo {
-    width:70px; 
-    height:70px; 
+    position: fixed;
+    width: 5%; 
+    height: width; 
     float: left; 
-    top:0%; 
-    left:0%; 
-    bottom:0%;
+    top: 20%; 
+    left: 0%; 
+    bottom: 0%;
     margin-top: 0.3%;
 }
 
 .detailed-investmentName {
+    position: fixed;
     float: left;
     text-align: left;
-    margin-left: 1%;
-    font-size: 50px;
-    color: azure;
+    top: 20%;
+    left: 5%;
+    font-size: 3rem;
+    color: var(--font-color);
     margin-top: 1%;
-    width: 30%;
-}
-
-.detailed-investmentCEO {
-    float: left;
-    margin-left: 1%;
-    font-size: 50px;
-    color: azure;
-    margin-top: 1%;
+    width: 90%;
 }
 
 .detailsDiagram {
+    position: fixed;
     display: block;
-    border:1px; 
-    border-style:solid; 
-    border-color:#000000; 
-    width: 70%;
-    height: 70%;
-    position: absolute;
-    margin-top: 5.3%;
-    margin-left: auto;
+    border: 1px; 
+    border-style: solid; 
+    border-color: #000000;
+    top: 20%;
+    width: 60%;
+    height: 60%;
+    margin-top: 8%;
+    margin-left: 5%;
     margin-right: auto;
 }
 
 .miniCatalogList {
-    border:1px;
-    border-style:solid;
-    border-color:#000000;
-    background-color: aliceblue;
+    box-shadow: 0.2% 0.3% 1% #00000075;
+    border-radius: 1rem;
+    background-color: var(--header-color);
     padding: 0%;
     padding-top: 1%;
-    width: 25%;
-    height: 32vw;
+    width: 25vw;
     float: right;
-    margin: 5px;
-    margin-left: 0%;
-    margin-top: 5.3%;
+    margin-top: 4%;
+    margin-right: 4%;
 }
 
 .miniCatalog {
-    box-shadow: 2px 3px #3a3a3a;
-    border:1px; 
-    border-style:solid; 
-    border-color:#000000;
-    border-radius: 3px;
-    background-color: white;
+    box-shadow: 0.2% 0.3% 1% #00000075;
+    border-radius: 0.5vw;
+    background-color: var(--catalog-color);
     align-items: center;
-    width: 92%;
-    float: right;
-    margin: 5px;
-    margin-right: 3%;
+    width: 20vw;
+    height: 10vh;
+    float: left;
+    margin-left: 2.5vw;
+    margin-bottom: 0.5%;
+}
+
+.miniCatalog:hover {
+    background-color: var(--font-color);
 }
 
 .miniCatalog-miniLogo {
-    width:50px; 
-    height:50px; 
+    width: 15%; 
+    height: width;
     float: left; 
     padding: 3%;
     margin-top: 1%;
-    top:0%; 
-    left:0%; 
-    bottom:0%;
+    top: 0%; 
+    left: 0%; 
+    bottom: 0%;
 }
 
 .miniCatalog-name {
@@ -390,19 +369,22 @@ nav {
 
 .miniCatalog-details {
     float: left;
-    margin: 2%;
-    margin-top: 3%;
-    margin-left: 7%;
-    padding: 12px;
-    width: 20%;
-    font-size: 150%;
+    margin-top: 5%;
+    margin-left: 0;
+    padding: 2%;
+    width: 30%;
+    font-size: 1.4rem;
     align-items: center;
     text-align: center;
     -webkit-appearance: button;
     -moz-appearance: button;
     appearance: button;
     text-decoration: none;
-    color: initial;
-    border: #000000;
-    border-style: solid;
+    color: var(--font-color);
+    background-color: var(--alert-color);
+    border-radius: 1.5rem;
+}
+
+.miniCatalog-details:hover {
+    background-color: var(--select-color);
 }

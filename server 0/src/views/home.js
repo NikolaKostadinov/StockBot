@@ -1,31 +1,42 @@
 import { getAllInvestments } from '../api/data.js';
 import { html } from '../lib.js';
 
-const catalogTemplate = (investments, ImageLoad) => html`
+const catalogTemplate = (investments, ImageLoad, loadName) => html`
 <section class="statisticsSections">
-<div class="diagramLi" id="container"></div>
     ${investments.length == 0 
         ? html`<p>No Investments in Catalog!</p>`
-        : investments.map((investment) => investmentCard(investment, ImageLoad))}
+        : investments.map((investment) => investmentCard(investment, ImageLoad, loadName))}
 </section>`;
 
+//<div class="diagramLi" id="container"></div>
 
-const investmentCard = (investment, ImageLoad) => {
-    const diff = (investment.closeSpec[0]-investment.closeValues[investment.closeValues.length-1]).toFixed(2);
-    if (diff > 0) {
+/*const valueToString = (value) => {
+    value
+    return stringValue;
+}*/
+
+const investmentCard = (investment, ImageLoad, loadName) => {
+
+    const diff = (investment.closeSpec[0] - investment.closeValues[investment.length-1]).toFixed(2);
+    const bound = 1;
+    const positiveColor = "#00ff22";
+    const neutralColor = "#e9f900";
+    const negativeColor = "#e22f2f";
+
+    if (diff > bound) {
         return html`
         <p class="catalogs">
-            <a class="name"><img class="miniLogo" src=${ImageLoad(investment)}>${investment.ticker}</a>
-            <a class="statisticsA" style="color: #2fe247;">${diff}$</a>
+            <a class="name"><img class="miniLogo" src=${ImageLoad(investment)}>${loadName(investment)}</a>
+            <a class="statisticsA" style="color: ${positiveColor}">+${diff}$</a>
             <a class="details" href="/details/${investment._id}" id="details">Details</a>
         <font size="+2"></font>
         </p>`
     }
-    else if (diff < 0) {
+    else if (diff < -bound) {
         return html`
         <p class="catalogs">
-            <a class="name"><img class="miniLogo" src=${ImageLoad(investment)}>${investment.ticker}</a>
-            <a class="statisticsA" style="color: #e22f2f;">${diff}$</a>
+            <a class="name"><img class="miniLogo" src=${ImageLoad(investment)}>${loadName(investment)}</a>
+            <a class="statisticsA" style="color: ${negativeColor};">${diff}$</a>
             <a class="details" href="/details/${investment._id}" id="details">Details</a>
         <font size="+2"></font>
         </p>`
@@ -33,8 +44,8 @@ const investmentCard = (investment, ImageLoad) => {
     else {
         return html`
         <p class="catalogs">
-            <a class="name"><img class="miniLogo" src=${ImageLoad(investment)}>${investment.ticker}</a>
-            <a class="statisticsA" style="color: #a3af00;">+${diff}$</a>
+            <a class="name"><img class="miniLogo" src=${ImageLoad(investment)}>${loadName(investment)}</a>
+            <a class="statisticsA" style="color: ${neutralColor};">+${diff}$</a>
             <a class="details" href="/details/${investment._id}" id="details">Details</a>
         <font size="+2"></font>
         </p>`
@@ -42,20 +53,21 @@ const investmentCard = (investment, ImageLoad) => {
 };
 
 export async function homePage(ctx) {
-    const investments = await getAllInvestments();
 
-    ctx.render(catalogTemplate(investments, ImageLoad));
+    const investments = await getAllInvestments();
+    const request = ["TSLA","MSFT","NKE","AAPL","KO","X","GOOGL","FB","BAC","AMD","BABA","T","HPQ","PFE","PYPL","AMZN","ETH","BTC","ADA"];
+    const requestNames = ["Tesla","Microsoft","Nike","Apple","Coca-Cola","US Steel Corp","Google","Meta","Bank of America","AMD","Alibaba","AT&T","HP","Pfizer","PayPal","Amazon.com","Ether","Bitcoin","Cardano"];
+
+    ctx.render(catalogTemplate(investments, ImageLoad, loadName));
+
+    function loadName (investment) {
+        for (let i = 0; i < request.length; i++) if (investment.ticker == request[i]) return requestNames[i];
+        return "_";
+    }
 
     function ImageLoad(investment) {
-        if (investment.ticker == "TSLA") {
-            return '../images/TSLA_logo.jpg';
-        } else if (investment.ticker == "Bitcoin") {
-            return '../images/Bitcoin_logo.png';
-        } else if (investment.ticker == "ETH") {
-            return '../images/ETH_logo.png';
-        }  else {
-            return "";
-        }
+        for (const tick of request) if (investment.ticker == tick) return `../images/${tick}_logo.png`;
+        return "";
     }
 
     function onSubmit (investment) {
@@ -75,7 +87,7 @@ export async function homePage(ctx) {
         investments.map((investment) => {
             arr=[];
             arr.push(investment.ticker);
-            arr.push(investment.closeSpec[0]-investment.closeValues[investment.closeValues.length-1]);
+            arr.push(investment.closeSpec[0] - investment.closeValues[investment.length-1]);
             rows.push(arr);
         });
 
@@ -96,5 +108,5 @@ export async function homePage(ctx) {
         chart.draw();
     }
 
-    diagramView();
+    //diagramView();
 }
