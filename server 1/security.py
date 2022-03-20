@@ -51,23 +51,29 @@ class Security:
             with open("information.json", "w") as file: file.write(jsonString)
         
         # Set Date And Get Security Data
+        
         if "date" in kwargs:
+            
             date = kwargs["date"]
 
             if json.load(open("information.json"))[self.ticker]["market"] == "crypto":
                 self.dataframe = dataframe.DownloadYDate(self.ticker + "-USD", self.length, date, False)
             else: self.dataframe = dataframe.DownloadYDate(self.ticker, self.length, date, True)
-            if shared._ERRORS:raise TypeError("StockBot: Ticker not found")
+            
+            if shared._ERRORS: raise TypeError("StockBot: Ticker not found")
 
             self.now = bravotime.Convert(date)
+            
         else:
+            
             if json.load(open("information.json"))[self.ticker]["market"] == "crypto":
                 self.dataframe = dataframe.DownloadY(self.ticker + "-USD", self.length, False)
             else: self.dataframe = dataframe.DownloadY(self.ticker, self.length, True)
+            
             if shared._ERRORS: raise TypeError("StockBot: Ticker not found")
 
             self.now = bravotime.Now()
-
+        
         # Save Security Data
         self.openValues = self.dataframe["Open"].to_list()
         self.closeValues = self.dataframe["Close"].to_list()
@@ -111,7 +117,7 @@ class Security:
 
         # Vulyo Magic
         self._createdOn = 1617194210928
-        
+          
     def SpeculateUpdate(self):
         
         """Append seculated values"""

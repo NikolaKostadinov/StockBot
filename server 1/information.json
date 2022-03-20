@@ -6,20 +6,6 @@
         "market": "NASDAQ",
         "description": "_"
     },
-    "ETH": {
-        "name": "Ether",
-        "ceo": "Vitalik Buterin",
-        "headquarters": "_",
-        "market": "crypto",
-        "description": "_"
-    },
-    "BTC": {
-        "name": "Bitcoin",
-        "ceo": "Satoshi Nakamoto",
-        "headquarters": "_",
-        "market": "crypto",
-        "description": "_"
-    },
     "AAPL": {
         "name": "Apple Inc",
         "ceo": "Tim Cook",
@@ -32,13 +18,6 @@
         "ceo": "Satya Nadella",
         "headquarters": "Redmond",
         "market": "NASDAQ",
-        "description": "_"
-    },
-    "ADA": {
-        "name": "Cardano",
-        "ceo": "Charles Hoskinson",
-        "headquarters": "_",
-        "market": "crypto",
         "description": "_"
     },
     "X": {
@@ -60,6 +39,97 @@
         "ceo": "Sundar Pichai",
         "headquarters": "Mountain View",
         "market": "NASDAQ",
+        "description": "_"
+    },
+    "FB": {
+        "name": "Meta Platforms Inc",
+        "ceo": "Mark Zuckerberg",
+        "headquarters": "Menlo Park",
+        "market": "NASDAQ",
+        "description": "_"
+    },
+    "BAC": {
+        "name": "Bank of America Corp",
+        "ceo": "Brian Moynihan",
+        "headquarters": "Charlotte",
+        "market": "NYSE",
+        "description": "_"
+    },
+    "AMD": {
+        "name": "Advanced Micro Devices Inc",
+        "ceo": "Lisa Su",
+        "headquarters": "Santa Clara",
+        "market": "NASDAQ",
+        "description": "_"
+    },
+    "BABA": {
+        "name": "Alibaba Group Holding Limited",
+        "ceo": "Daniel Zhang",
+        "headquarters": "Hangzhou",
+        "market": "NYSE",
+        "description": "_"
+    },
+    "T": {
+        "name": "AT&T Inc",
+        "ceo": "John Stankey",
+        "headquarters": "Dallas",
+        "market": "NYSE",
+        "description": "_"
+    },
+    "HPQ": {
+        "name": "Hewlett-Packard Inc",
+        "ceo": "Enrique Lores",
+        "headquarters": "Palo Alto",
+        "market": "NYSE",
+        "description": "_"
+    },
+    "PFE": {
+        "name": "Pfizer Inc",
+        "ceo": "Albert Bourla",
+        "headquarters": "New York",
+        "market": "NYSE",
+        "description": "_"
+    },
+    "PYPL": {
+        "name": "PayPal Holdings Inc",
+        "ceo": "Dan Schulman",
+        "headquarters": "San Jose",
+        "market": "NASDAQ",
+        "description": "_"
+    },
+    "KO": {
+        "name": "The Coca-Cola Company",
+        "ceo": "James Quincey",
+        "headquarters": "Atlanta",
+        "market": "NYSE",
+        "description": "_"
+    },
+    "AMZN": {
+        "name": "Amazon.com Inc",
+        "ceo": "Andy Jassy",
+        "headquarters": "Seattle",
+        "market": "NASDAQ",
+        "description": "_"
+    },
+    "ADA": {
+        "name": "Cardano",
+        "ceo": "Charles Hoskinson",
+        "headquarters": "_",
+        "market": "crypto",
+        "description": "_"
+    },
+    "ETH": {
+        "name": "Ether",
+        "ceo": "Vitalik Buterin",
+        "headquarters": "_",
+        "market": "crypto",
+        "description": "_"
+    },
+    "BTC": {
+        "name": "Bitcoin",
+        "ceo": "Satoshi Nakamoto",
+        "headquarters": "_",
+        "market": "crypto",
         "description": "_"
     }
 }
