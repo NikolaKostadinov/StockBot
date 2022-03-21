@@ -108,5 +108,5 @@ export async function homePage(ctx) {
         chart.draw();
     }
 
-    //diagramView();
+    diagramView();
 }

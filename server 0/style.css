@@ -12,15 +12,14 @@
     --header-color: #1f1f58;
     --catalog-color: #b5c6ff;
     --backg-color: #161629;
+    --backg2-color: #00003a;
     --alert-color: #0000ff;
     --select-color: #34fa6b;
 }
 
 .body {
     display: block;
-    /*background-image: url('./images/coustom-background.jpg');*/
-    background-color: var(--backg-color);
-    /*overflow: hidden;*/
+    background: linear-gradient(var(--backg-color) 0%, var(--backg2-color) 100%);
     font-family: Blazma;
 }
 
@@ -92,6 +91,7 @@ nav {
 }
 
 .catalogs:hover {
+    background: var(--font-color);
     background-color: var(--font-color);
 }
 
