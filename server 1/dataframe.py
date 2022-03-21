@@ -9,7 +9,7 @@ def DownloadYDate(downloadable, days, date, marketSleep):
     before = now - relativedelta(days=days)
     
     if marketSleep is True:
-        before -= relativedelta(days=106) # 106 ONLY WORKS FOR 240 DAYS
+        before -= relativedelta(days=107) # 107 ONLY WORKS FOR 240 DAYS
         
     dateFinal = f"{now.year}-{now.month}-{now.day}"
     dateInitial = f"{before.year}-{before.month}-{before.day}"

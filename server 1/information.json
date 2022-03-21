@@ -97,6 +97,20 @@
         "market": "NASDAQ",
         "description": "_"
     },
+    "F": {
+        "name": "Ford Motor Company",
+        "ceo": "Jim Farley",
+        "headquarters": "Dearborn",
+        "market": "NYSE",
+        "description": "_"
+    },
+    "INTC": {
+        "name": "Intel Corp",
+        "ceo": "Pat Gelsinger",
+        "headquarters": "Santa Clara",
+        "market": "NASDAQ",
+        "description": "_"
+    },
     "KO": {
         "name": "The Coca-Cola Company",
         "ceo": "James Quincey",
@@ -128,6 +142,27 @@
     "BTC": {
         "name": "Bitcoin",
         "ceo": "Satoshi Nakamoto",
+        "headquarters": "_",
+        "market": "crypto",
+        "description": "_"
+    },
+    "USDT": {
+        "name": "Tether",
+        "ceo": "_",
+        "headquarters": "_",
+        "market": "crypto",
+        "description": "_"
+    },
+    "BNB": {
+        "name": "Binance Coin",
+        "ceo": "_",
+        "headquarters": "_",
+        "market": "crypto",
+        "description": "_"
+    },
+    "XRP": {
+        "name": "XRP",
+        "ceo": "_",
         "headquarters": "_",
         "market": "crypto",
         "description": "_"
