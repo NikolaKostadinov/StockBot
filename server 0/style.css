@@ -289,7 +289,7 @@ nav {
     height: width; 
     float: left; 
     top: 20%; 
-    left: 0%; 
+    left: 5%; 
     bottom: 0%;
     margin-top: 0.3%;
 }
@@ -299,7 +299,7 @@ nav {
     float: left;
     text-align: left;
     top: 20%;
-    left: 5%;
+    left: 12%;
     font-size: 3rem;
     color: var(--font-color);
     margin-top: 1%;

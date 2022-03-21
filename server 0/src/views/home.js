@@ -55,8 +55,8 @@ const investmentCard = (investment, ImageLoad, loadName) => {
 export async function homePage(ctx) {
 
     const investments = await getAllInvestments();
-    const request = ["TSLA","MSFT","NKE","AAPL","KO","X","GOOGL","FB","BAC","AMD","BABA","T","HPQ","PFE","PYPL","AMZN","ETH","BTC","ADA"];
-    const requestNames = ["Tesla","Microsoft","Nike","Apple","Coca-Cola","US Steel Corp","Google","Meta","Bank of America","AMD","Alibaba","AT&T","HP","Pfizer","PayPal","Amazon.com","Ether","Bitcoin","Cardano"];
+    const request = ["TSLA","MSFT","NKE","AAPL","KO","X","GOOGL","FB","BAC","AMD","BABA","T","HPQ","PFE","PYPL","F","INTC","AMZN","ETH","BTC","ADA","USDT","BNB","XRP"];
+    const requestNames = ["Tesla","Microsoft","Nike","Apple","Coca-Cola","US Steel","Google","Meta","Bank of America","AMD","Alibaba","AT&T","HP","Pfizer","PayPal","Ford","Intel","Amazon","Ether","Bitcoin","Cardano","Tether","Binance Coin","XRP"];
 
     ctx.render(catalogTemplate(investments, ImageLoad, loadName));
 

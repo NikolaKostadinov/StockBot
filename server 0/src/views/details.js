@@ -42,8 +42,8 @@ export async function detailsPage(ctx) {
 
     const investments = await getAllInvestments();
     const investment = await getInvestmentyId(ctx.params.ticker);
-    const request = ["TSLA","MSFT","NKE","AAPL","KO","X","GOOGL","FB","BAC","AMD","BABA","T","HPQ","PFE","PYPL","AMZN","ETH","BTC","ADA"];
-    const requestNames = ["Tesla Incorporation","Microsoft Corporation","Nike Incorporation","Apple Incorporation","The Coca-Cola Company","United States Steel Corporation","Alphabet Incorporation","Meta Platforms Incorporation","Bank of America Corporation","Advanced Micro Devices Incorporation","Alibaba Group Holding Limited","AT&T Incorporation","Hewlett-Packard Incorporation","Pfizer Incorporation","PayPal Holdings Incorporation","Amazon.com Incorporation","Ether","Bitcoin","Cardano"];
+    const request = ["TSLA","MSFT","NKE","AAPL","KO","X","GOOGL","FB","BAC","AMD","BABA","T","HPQ","PFE","PYPL","F","INTC","AMZN","ETH","BTC","ADA","USDT","BNB","XRP"];
+    const requestNames = ["Tesla Incorporation","Microsoft Corporation","Nike Incorporation","Apple Incorporation","The Coca-Cola Company","United States Steel Corporation","Alphabet Incorporation","Meta Platforms Incorporation","Bank of America Corporation","Advanced Micro Devices Incorporation","Alibaba Group Holding Limited","AT&T Incorporation","Hewlett-Packard Incorporation","Pfizer Incorporation","PayPal Holdings Incorporation","Ford Motor Company","Intel Corporation","Amazon.com Incorporation","Ether","Bitcoin","Cardano","Tether","Binance Coin","XRP"];
 
     ctx.render(detailsTemplate(investments, investment, onLoad, ImageLoad, loadName));
 
